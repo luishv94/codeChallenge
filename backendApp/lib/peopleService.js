@@ -1,5 +1,6 @@
 const rp = require('request-promise-native');
 
+//Not using paging. Getting only the defaulted 25 results.
 async function getPeopleList() {
     try {
       const reqOptions = {
