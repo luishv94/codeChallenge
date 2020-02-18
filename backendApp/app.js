@@ -1,5 +1,8 @@
 const express = require('express');
+const dotenv = require('dotenv');
 const peopleRouter = require('./api/people/people.route');
+
+dotenv.config();
 
 const app = express();
 

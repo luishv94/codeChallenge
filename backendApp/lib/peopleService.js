@@ -1,7 +1,20 @@
-async function getPeopleList(req, res, next) {
+const rp = require('request-promise-native');
+
+async function getPeopleList() {
     try {
-      // TODO consume SalesLoft's endpoint.
-      // use an ENV var for the Bearer Token.
+      const reqOptions = {
+        url: process.env.SALESLOFT_API_PEOPLE,
+        headers: {
+          Authorization: `Bearer ${process.env.KEY}`
+        },
+        json: true
+      };
+
+      const response = await rp.get(reqOptions);
+      const result = response.data;
+
+      return result;
+      
     } catch (err) {
         throw err;
     }

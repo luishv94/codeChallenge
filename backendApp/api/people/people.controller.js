@@ -1,9 +1,9 @@
-//TODO import the service 
+const peopleService = require('../../lib/peopleService');
 
 async function getPeopleList(req, res, next) {
     try {
-      // TODO call the service
-      res.send('Hello world :)');
+      const data = await peopleService.getPeopleList();
+      res.send(data);
     } catch (err) {
       next(err);
     }
