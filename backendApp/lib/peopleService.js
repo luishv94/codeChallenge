@@ -11,10 +11,15 @@ async function getPeopleList() {
       };
 
       const response = await rp.get(reqOptions);
-      const result = response.data;
+      let result = response.data;
+      result = result.map(o => ({
+          name: o.display_name,
+          email: o.email_address,
+          title: o.title
+      }));
 
       return result;
-      
+
     } catch (err) {
         throw err;
     }
