@@ -37,8 +37,8 @@ async function getFrequencyCount(req, res, next) {
 }
 
 //Add the counts from the given object.
-function addCounts(arr, counts) {
-  for(let a in arr) {
+function addCounts(strCount, counts) {
+  for(let a in strCount) {
     counts[a] = counts[a] ? counts[a] + 1 : 1;
   }
 }
