@@ -62,4 +62,59 @@ async function getPeopleList(req, res, next) {
   }
 }
 
-module.exports = { getPeopleList, getFrequencyCount };
+async function getPossibleDuplicates(req, res, next) {
+  try {
+    const data = await peopleService.getPeopleList();
+
+    checkForDuplicates(data[0], data[1]);//TODO iterate though the object.
+    checkForDuplicates(data[7], data[8]);
+
+    const possibleDuplicates = data.filter(o => o.duplicatedFlag === true);
+    
+    
+    res.send(possibleDuplicates);
+  } catch (err) {
+    next(err);
+  }
+}
+
+//Add a flag to both objects if they are possible duplicates.
+function checkForDuplicates(obj1, obj2) {
+  const count1 = getFrequencyCountByString(obj1.email);
+  const count2 = getFrequencyCountByString(obj2.email);
+  const size1 = Object.keys(count1).length;
+  const size2 = Object.keys(count2).length;
+  let greaterObj; 
+  let lesserObj;
+  let mismatches = 0;
+
+  //Difference of unique characters between emails should be less than or equal the allowed typo precision.
+  if(Math.abs(size1 - size2) <= process.env.TYPO_PRECISION) {
+    //Iterate through the greater object always to catch all the number of mismatches.
+    if(size1 > size2) {
+      greaterObj = count1;
+      lesserObj = count2;
+    } else {
+      greaterObj = count2;
+      lesserObj = count1;
+    }
+    for(let char in greaterObj) {
+      //If the character is not in the lesser obj, every occurrence is a mismatch.
+      if(!lesserObj[char]) {
+        mismatches = mismatches + greaterObj[char];
+      } else {
+        //The difference of occurrences are mismatches.
+        mismatches = mismatches + (Math.abs(greaterObj[char] - lesserObj[char]));
+      }
+    }
+
+    //If the number of mismatches are less than or equal the allowed typo precision value, it is a possible duplicate.
+    if(mismatches <= process.env.TYPO_PRECISION) {
+      obj1.duplicatedFlag = true;
+      obj2.duplicatedFlag = true;
+    }
+
+  }
+}
+
+module.exports = { getPeopleList, getFrequencyCount, getPossibleDuplicates };

@@ -15,4 +15,10 @@ router.get(
     getPeopleController.getFrequencyCount
 );
 
+//Get the list of possible duplicated emails.
+router.get(
+    '/possibleDuplicates',
+    getPeopleController.getPossibleDuplicates
+);
+
 module.exports = router;
