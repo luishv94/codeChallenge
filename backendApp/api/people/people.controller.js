@@ -68,7 +68,6 @@ async function getPossibleDuplicates(req, res, next) {
     for(let i = 0; i < Object.keys(data).length - 1; i++) {
       for(let j = i + 1; j < Object.keys(data).length; j++) {
         checkForDuplicates(data[i], data[j]);
-        console.log(i+' vs '+j);
       }
     }
     const possibleDuplicates = data.filter(o => o.duplicatedFlag === true);
