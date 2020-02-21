@@ -41,9 +41,9 @@ const PeopleList = ({people}) => (
       <table>
           <thead>
               <tr>
-                  <td><b>Nombre</b></td>
+                  <td><b>Name</b></td>
                   <td><b>Email</b></td>
-                  <td><b>Puesto</b></td>
+                  <td><b>Title</b></td>
               </tr>
           </thead>
           <tbody>
