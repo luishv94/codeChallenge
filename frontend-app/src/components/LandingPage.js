@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { FrequencyCountButton } from './FrequencyCountButton'
 import { PossibleDuplicatesButton } from './PossibleDuplicatesButton'
 import { ConnectedPeopleData } from '../containers/ConnectedPeopleData'
+import { ConnectedCounts } from '../containers/ConnectedCounts'
 
 const Page = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ export const LandingPage = () => (
         <ConnectedPeopleData />
       </FlexBox>
       <FlexBox>
-        <ConnectedPeopleData />
+        <ConnectedCounts />
       </FlexBox>
     </Page>
   </div>
