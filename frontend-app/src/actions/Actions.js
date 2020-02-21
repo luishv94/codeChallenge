@@ -6,3 +6,10 @@ export function receivePeople(people) {
     people
   }
 }
+
+export function receiveCounts(counts) {
+  return {
+    type: actions.RECEIVE_COUNTS,
+    counts
+  }
+}

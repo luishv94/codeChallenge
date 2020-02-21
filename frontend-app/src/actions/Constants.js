@@ -1,1 +1,2 @@
 export const RECEIVE_PEOPLE = 'RECEIVE_PEOPLE';
+export const RECEIVE_COUNTS = 'RECEIVE_COUNTS';
