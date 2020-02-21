@@ -5,6 +5,7 @@ import { FrequencyCountButton } from './FrequencyCountButton'
 import { PossibleDuplicatesButton } from './PossibleDuplicatesButton'
 import { ConnectedPeopleData } from '../containers/ConnectedPeopleData'
 import { ConnectedCounts } from '../containers/ConnectedCounts'
+import { ConnectedDuplicates } from '../containers/ConnectedDuplicates'
 
 const Page = styled.div`
   display: flex;
@@ -30,7 +31,7 @@ export const LandingPage = () => (
         <ConnectedCounts />
       </FlexBox>
       <FlexBox>
-        <ConnectedPeopleData />
+        <ConnectedDuplicates />
       </FlexBox>
     </Page>
   </div>
