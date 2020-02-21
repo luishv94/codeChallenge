@@ -20,8 +20,8 @@ window.store = store
 
 // bootstrap state
 store.dispatch(fetchPeople()).then(() => console.log(store.getState()));
-store.dispatch(fetchCounts()).then(() => console.log(store.getState()));
-store.dispatch(fetchDuplicates()).then(() => console.log(store.getState()));
+// store.dispatch(fetchCounts()).then(() => console.log(store.getState()));
+// store.dispatch(fetchDuplicates()).then(() => console.log(store.getState()));
 
 ReactDOM.render(
   <App store={store} />,

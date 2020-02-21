@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { FrequencyCountButton } from './FrequencyCountButton'
-import { PossibleDuplicatesButton } from './PossibleDuplicatesButton'
+import { ConnectedFrequencyButton } from '../containers/ConnectedFrequencyButton'
+import { ConnectedDuplicatesButton } from '../containers/ConnectedDuplicatesButton'
 import { ConnectedPeopleData } from '../containers/ConnectedPeopleData'
 import { ConnectedCounts } from '../containers/ConnectedCounts'
 import { ConnectedDuplicates } from '../containers/ConnectedDuplicates'
@@ -21,8 +21,8 @@ const FlexBox = styled.div`
 
 export const LandingPage = () => (
   <div>
-    <FrequencyCountButton />
-    <PossibleDuplicatesButton />
+    <ConnectedFrequencyButton />
+    <ConnectedDuplicatesButton />
     <Page>
       <FlexBox>
         <ConnectedPeopleData />

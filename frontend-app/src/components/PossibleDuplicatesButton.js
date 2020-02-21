@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { fetchDuplicates } from '../actions/AsyncActions'
 
 const NAV_HEIGHT = 46;
 const AVATAR_HEIGHT = 40;
@@ -37,14 +38,16 @@ const Badge = styled.div`
   background-color: #4a90e2;
 `;
 
-let SignInBadge = () => (
+let SignInBadge = ({dispatch}) => (
   <Badge>
-    <a href='/users/auth/salesloft' style={{textDecoration: 'none'}}><NavText>Possible duplicates</NavText></a>
+    <a href='#' onClick={() => dispatch(fetchDuplicates())} style={{textDecoration: 'none'}}><NavText>Possible duplicates</NavText></a>
   </Badge>
 );
 
-export const PossibleDuplicatesButton = () => (
+const PossibleDuplicatesButton = ({dispatch}) => (
   <StyledNavBar>
-    <SignInBadge />
+    <SignInBadge dispatch={dispatch} />
   </StyledNavBar>
 );
+
+export default PossibleDuplicatesButton
