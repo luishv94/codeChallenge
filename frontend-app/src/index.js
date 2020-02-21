@@ -10,7 +10,7 @@ import Reducers from './reducers/CombinedReducers'
 
 import createHistory from 'history/createBrowserHistory'
 
-import { fetchPeople, fetchCounts } from './actions/AsyncActions'
+import { fetchPeople, fetchCounts, fetchDuplicates } from './actions/AsyncActions'
 
 const history = createHistory()
 const middlewares = [thunkMiddleware, routerMiddleware(history)]
@@ -21,6 +21,7 @@ window.store = store
 // bootstrap state
 store.dispatch(fetchPeople()).then(() => console.log(store.getState()));
 store.dispatch(fetchCounts()).then(() => console.log(store.getState()));
+store.dispatch(fetchDuplicates()).then(() => console.log(store.getState()));
 
 ReactDOM.render(
   <App store={store} />,

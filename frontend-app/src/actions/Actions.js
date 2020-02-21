@@ -13,3 +13,10 @@ export function receiveCounts(counts) {
     counts
   }
 }
+
+export function receiveDuplicates(duplicates) {
+  return {
+    type: actions.RECEIVE_DUPLICATES,
+    duplicates
+  }
+}

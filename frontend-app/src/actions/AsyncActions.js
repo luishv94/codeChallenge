@@ -17,3 +17,12 @@ export function fetchCounts() {
       then(json => dispatch(actions.receiveCounts(json)));
   }
 }
+
+export function fetchDuplicates() {
+  return dispatch => {
+    return fetch('http://localhost:3000/api/people/possibleDuplicates').
+      then(response => response.json(),
+            error => console.log('An error occurred.', error)).
+      then(json => dispatch(actions.receiveDuplicates(json)));
+  }
+}

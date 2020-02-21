@@ -29,6 +29,9 @@ export const LandingPage = () => (
       <FlexBox>
         <ConnectedCounts />
       </FlexBox>
+      <FlexBox>
+        <ConnectedPeopleData />
+      </FlexBox>
     </Page>
   </div>
 );
